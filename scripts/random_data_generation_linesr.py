@@ -20,7 +20,7 @@ def make_random_location():
     x = random.uniform(-1,1)
     y = random.uniform(-1,1)
     z = random.uniform(-1,1)
-    return [0,y,0]
+    return [0,0,0]
 
 def make_random_angle():
     x = random.uniform(0,3.1415926)

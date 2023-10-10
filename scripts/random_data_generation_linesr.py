@@ -26,7 +26,7 @@ def make_random_angle():
     x = random.uniform(0,3.1415926)
     y = random.uniform(0,3.1415926)
     z = random.uniform(0,3.1415926)
-    return [0,0,0]
+    return [x,0,0]
 
 def render_and_save(locations, angles, name):
     

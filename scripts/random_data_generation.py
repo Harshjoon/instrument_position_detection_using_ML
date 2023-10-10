@@ -9,8 +9,8 @@ no_of_data_points = 1000
 #render_data_path = "D:\Harsh Workspace\Software\data\instrument_detection_test/"
 #label_data_path  = "D:\Harsh Workspace\Software\data\instrument_detection_test/labels/"
 
-render_data_path = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_1/images/"
-label_data_path  = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_1/labels"
+render_data_path = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_4/images/"
+label_data_path  = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_4/labels/"
 
 def make_random_location():
     x = random.randint(-3,3)

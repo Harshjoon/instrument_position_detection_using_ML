@@ -4,13 +4,13 @@ import math
 import random
 import pickle
 
-no_of_data_points = 1000
+no_of_data_points = 100000
 
 #render_data_path = "D:\Harsh Workspace\Software\data\instrument_detection_test/"
 #label_data_path  = "D:\Harsh Workspace\Software\data\instrument_detection_test/labels/"
 
-render_data_path = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_3/images/"
-label_data_path  = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_3/labels/"
+render_data_path = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_7/images/"
+label_data_path  = "D:/Harsh Workspace/Software/GU/instrument_position_detection_using_ML/data/set_7/labels/"
 
 def make_random_location():
 #    x = random.randint(-3,3)
@@ -20,13 +20,13 @@ def make_random_location():
     x = random.uniform(-1,1)
     y = random.uniform(-1,1)
     z = random.uniform(-1,1)
-    return [0,0,0]
+    return [x,y,z]
 
 def make_random_angle():
     x = random.uniform(0,3.1415926)
     y = random.uniform(0,3.1415926)
     z = random.uniform(0,3.1415926)
-    return [x,0,0]
+    return [x,y,z]
 
 def render_and_save(locations, angles, name):
     

@@ -1,0 +1,62 @@
+import bpy
+import os
+import math
+import random
+import pickle
+
+no_of_data_points = 1000
+
+render_data_path = '/Users/harshjoon/Desktop/Github_repos/instrument_position_detection_using_ML/data/set_1/images/'
+label_data_path = '/Users/harshjoon/Desktop/Github_repos/instrument_position_detection_using_ML/data/set_1/labels/'
+
+def make_random_location():
+    x = random.uniform(-1,1)
+    y = random.uniform(-1,1)
+    z = random.uniform(-1,1)
+    return [0,4,0]
+
+def make_random_location_left():
+    x = random.uniform(-1,1)
+    y = random.uniform(-4,-2)
+    z = random.uniform(-1,1)
+    return [0,y,0]
+
+def make_random_location_right():
+    x = random.uniform(-1,1)
+    y = random.uniform(2,4)
+    z = random.uniform(-1,1)
+    return [0,y,0]
+
+def make_random_angle():
+    x = random.uniform(0,3.1415926)
+    y = random.uniform(0,3.1415926)
+    z = random.uniform(0,3.1415926)
+    return [x,0,0]
+
+
+def render_and_save(
+    locations_l, angles_l,
+    locations_r, angles_r, name
+    ):
+    
+    bpy.data.objects['right_i'].location = locations_r
+    bpy.data.objects['left_i'].location  = locations_l
+    bpy.data.objects['right_i'].keyframe_insert(data_path='location', frame=1)
+    bpy.data.objects['left_i'].keyframe_insert(data_path='location', frame=1)
+
+
+    bpy.data.objects['right_i'].rotation_euler = angles_r
+    bpy.data.objects['left_i'].rotation_euler  = angles_r
+    bpy.data.objects['right_i'].keyframe_insert(data_path='rotation_euler', frame=1)
+    bpy.data.objects['left_i'].keyframe_insert(data_path='rotation_euler', frame=1)
+    
+    
+    bpy.context.scene.render.filepath = render_data_path + name
+    bpy.ops.render.render(write_still=True) 
+    
+    with open( label_data_path + name , 'wb' ) as fp:
+        pickle.dump([locations_r, locations_l, angles_r, angles_l],fp)   
+
+for i in range(no_of_data_points):
+    render_and_save(make_random_location_left(),make_random_angle(),
+                    make_random_location_right(),make_random_angle(), str(i) )
